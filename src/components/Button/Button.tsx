@@ -2,7 +2,8 @@ import styles from "./Button.module.scss"
 
 
 type ButtonProps = {
-    type: "Edit" | "Delete" | "Create"
+    type: "Edit" | "Delete" | "Create",
+    onClick?: (...args: any) => void
 }
 
 const Button = (props: ButtonProps) => {
@@ -15,7 +16,7 @@ const Button = (props: ButtonProps) => {
 
     return(
         <div className={styles['Button']}>
-            <button style={{backgroundColor: Style[props.type]}}>{props.type}</button>
+            <button style={{backgroundColor: Style[props.type]}} onClick={props.onClick}>{props.type}</button>
         </div>
     )
 }
