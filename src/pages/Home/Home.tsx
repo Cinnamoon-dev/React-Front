@@ -1,4 +1,4 @@
-import { Button, Table } from '../../components'
+import { Table } from '../../components'
 import styles from './Home.module.scss'
 
 const Home = () => {
