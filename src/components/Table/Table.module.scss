@@ -1,0 +1,40 @@
+.TableContainer{
+    color: aliceblue;
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
+    border-radius: 10px;
+    
+    table{
+        width: 100%;
+        border-collapse: collapse;
+       
+        thead{
+
+            th{
+                background-color: #55608f;
+                padding: 15px;
+                text-align: left;
+            }
+            
+            th:first-child{
+                border-top-left-radius: 10px;
+            }
+            
+            th:last-child{
+                border-top-right-radius: 10px;
+            } 
+        }
+        
+        tbody{
+            
+            td{
+                background-color: rgba(255,255,255,0.2);
+                padding: 15px;
+                text-align: left;
+            }
+
+            tr:last-child{
+                    border-bottom-left-radius: 10px;
+            }
+        }
+    }    
+}
