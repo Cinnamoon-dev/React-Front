@@ -19,8 +19,6 @@ const Table = () => {
     ]
     const titles = Object.keys(tableData[0]).map((e) => capitalize(e))
     
-    const lines = Object.values(tableData).map
-    
     return(
         <div className={styles['TableContainer']}>
             <table>
