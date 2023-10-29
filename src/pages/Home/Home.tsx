@@ -1,4 +1,4 @@
-import { Table } from '../../components'
+import { Button, Table } from '../../components'
 import styles from './Home.module.scss'
 
 const Home = () => {
@@ -8,9 +8,15 @@ const Home = () => {
         {id: 3, name: "Guilherme", email: "guilherme@email.com"}
     ]
 
+    const actions = {
+        create: () => console.log("create"),
+        edit: () => console.log("edit"),
+        delete: () => console.log("delete"),
+    }
+
     return(
         <div className={styles['App']}>
-            <Table tableData={data}/>
+            <Table tableData={data} actions={actions} renderActions/>
         </div>
     )
 }
