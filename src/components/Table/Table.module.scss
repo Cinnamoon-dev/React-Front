@@ -34,17 +34,3 @@
         }
     }    
 }
-
-.Button{
-    button{
-        border: none;
-        border-radius: 5px;
-        padding: 5px 10px;
-        color: aliceblue;
-        cursor: pointer;
-    }
-
-    button:hover{
-        filter: brightness(120%);
-    }
-}
