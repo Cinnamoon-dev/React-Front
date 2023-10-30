@@ -10,8 +10,8 @@ const Home = () => {
 
     const actions = {
         create: () => console.log("create"),
-        edit: () => console.log("edit"),
-        delete: () => console.log("delete"),
+        edit: (id: number) => console.log("edit-" + id),
+        delete: (id: number) => console.log("delete-" + id),
     }
 
     return(
