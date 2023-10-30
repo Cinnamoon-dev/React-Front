@@ -37,7 +37,6 @@ const Actions = (props: ActionsProps) => {
                 <Button type='Delete' onClick={() => props.delete(props.id)}/>
             </div>
         </td>
-        
     )
 }
 
