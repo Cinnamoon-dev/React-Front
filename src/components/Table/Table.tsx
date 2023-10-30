@@ -4,8 +4,8 @@ import styles from './Table.module.scss'
 
 type ActionsFunctions = {
     create: () => void,
-    edit: () => void,
-    delete: () => void,
+    edit: (...args: any) => void,
+    delete: (...args: any) => void,
 }
 
 interface Data extends Object {
@@ -21,8 +21,8 @@ type TableProps = {
 
 type ActionsProps = {
     id: number,
-    edit?: (id: number) => void,
-    delete?: (id: number) => void,
+    edit: (id: number) => void,
+    delete: (id: number) => void,
 }
 
 const capitalize = (str: string) => {
@@ -32,8 +32,8 @@ const capitalize = (str: string) => {
 const Actions = (props: ActionsProps) => {
     return(
         <div style={{display: 'flex', gap: '7px'}}>
-            <Button type='Edit' onClick={() => props.edit !== undefined ? props.edit(props.id) : undefined}/>
-            <Button type='Delete' onClick={() => props.delete !== undefined ? props.delete(props.id) : undefined}/>
+            <Button type='Edit' onClick={() => props.edit(props.id)}/>
+            <Button type='Delete' onClick={() => props.delete(props.id)}/>
         </div>
     )
 }
@@ -61,7 +61,7 @@ const Table = (props: TableProps) => {
                     <tbody>
                         { props.tableData.map((e) => {
                             const values = Object.values(e).map((e) => <td>{e}</td>)
-                            if(props.renderActions) {
+                            if(props.renderActions && props.actions !== undefined) {
                                 values.push(<td><Actions id={e.id} edit={props.actions?.edit} delete={props.actions?.delete}/></td>)
                             }
                             return(<tr>{values}</tr>)
