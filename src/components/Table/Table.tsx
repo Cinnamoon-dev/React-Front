@@ -31,10 +31,13 @@ const capitalize = (str: string) => {
 
 const Actions = (props: ActionsProps) => {
     return(
-        <div style={{display: 'flex', gap: '7px'}}>
-            <Button type='Edit' onClick={() => props.edit(props.id)}/>
-            <Button type='Delete' onClick={() => props.delete(props.id)}/>
-        </div>
+        <td>
+            <div style={{display: 'flex', gap: '7px'}}>
+                <Button type='Edit' onClick={() => props.edit(props.id)}/>
+                <Button type='Delete' onClick={() => props.delete(props.id)}/>
+            </div>
+        </td>
+        
     )
 }
 
@@ -62,7 +65,7 @@ const Table = (props: TableProps) => {
                         { props.tableData.map((e) => {
                             const values = Object.values(e).map((e) => <td>{e}</td>)
                             if(props.renderActions && props.actions !== undefined) {
-                                values.push(<td><Actions id={e.id} edit={props.actions?.edit} delete={props.actions?.delete}/></td>)
+                                values.push(<Actions id={e.id} edit={props.actions?.edit} delete={props.actions?.delete}/>)
                             }
                             return(<tr>{values}</tr>)
                         })}
