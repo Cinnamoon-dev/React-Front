@@ -15,6 +15,7 @@ interface Data extends Object {
 
 type TableProps = {
     tableData: Data[],
+    tableColumns: string[]
     renderActions?: boolean,
     actions?: ActionsFunctions 
 }
@@ -41,8 +42,15 @@ const Actions = (props: ActionsProps) => {
 }
 
 const Table = (props: TableProps) => {
-    const titles = Object.keys(props.tableData[0]).map((e) => capitalize(e))
-    
+    const titles = props.tableColumns.map(e => capitalize(e))
+    const data = props.tableData.map(object => {
+        const line = props.tableColumns.map(field => <td>{object[field]}</td>)
+        if(props.actions) {
+            line.push(<Actions id={object.id} edit={props.actions?.edit} delete={props.actions?.delete}/>)
+        }
+        return(<tr>{line}</tr>) 
+    })
+
     return(
         <div className={styles['TableWrapper']}>
             { props.renderActions &&
@@ -61,18 +69,11 @@ const Table = (props: TableProps) => {
                     </thead>
                     
                     <tbody>
-                        { props.tableData.map((e) => {
-                            const values = Object.values(e).map((e) => <td>{e}</td>)
-                            if(props.renderActions && props.actions !== undefined) {
-                                values.push(<Actions id={e.id} edit={props.actions?.edit} delete={props.actions?.delete}/>)
-                            }
-                            return(<tr>{values}</tr>)
-                        })}
+                        {data}
                     </tbody>
                 </table>
             </div>
         </div>
-        
     )
 }
 
