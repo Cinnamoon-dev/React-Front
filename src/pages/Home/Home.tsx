@@ -8,6 +8,8 @@ const Home = () => {
         {id: 3, name: "Guilherme", email: "guilherme@email.com"}
     ]
 
+    const columns = ["id", "name", "email"]
+
     const actions = {
         create: () => console.log("create"),
         edit: (id: number) => console.log("edit-" + id),
@@ -16,7 +18,7 @@ const Home = () => {
 
     return(
         <div className={styles['App']}>
-            <Table tableData={data} actions={actions} renderActions/>
+            <Table tableData={data} tableColumns={columns} actions={actions} renderActions/>
         </div>
     )
 }
