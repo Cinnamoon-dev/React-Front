@@ -1,4 +1,4 @@
-import { Table } from '../../components'
+import { Table, Input } from '../../components'
 import styles from './Home.module.scss'
 
 const Home = () => {
@@ -18,6 +18,7 @@ const Home = () => {
 
     return(
         <div className={styles['App']}>
+            <Input/>
             <Table tableData={data} tableColumns={columns} actions={actions} renderActions/>
         </div>
     )
