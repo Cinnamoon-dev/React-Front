@@ -1,7 +1,10 @@
-import { Table, Input } from '../../components'
 import styles from './Home.module.scss'
+import { useNavigate } from 'react-router-dom'
+import { Table, Input } from '../../components'
 
 const Home = () => {
+    const navigate = useNavigate()
+
     const data = [
         {id: 1, name: "Pedro", email: "pedro@email.com"},
         {id: 2, name: "Daniel", email: "daniel@email.com"},
@@ -11,7 +14,7 @@ const Home = () => {
     const columns = ["id", "name", "email"]
 
     const actions = {
-        create: () => console.log("create"),
+        create: () => navigate("/user/add"),
         edit: (id: number) => console.log("edit-" + id),
         delete: (id: number) => console.log("delete-" + id),
     }
