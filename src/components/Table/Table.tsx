@@ -64,7 +64,7 @@ const Table = (props: TableProps) => {
                     <thead>
                         <tr>
                             {titles.map((e, i) => <th key={i}>{e}</th>)}
-                            { props.renderActions && <th>Actions</th>}
+                            {props.renderActions && <th>Actions</th>}
                         </tr>
                     </thead>
                     
