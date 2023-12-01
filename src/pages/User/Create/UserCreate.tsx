@@ -9,6 +9,8 @@ const CreateUser = () => {
     const [email, setEmail] = useState<string>()
 
     const submit = () => {
+        console.log("name: " + name)
+        console.log("email: " + email)
         navigate("/")
     }
 
