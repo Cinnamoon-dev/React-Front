@@ -1,18 +1,22 @@
-import styles from './UserCreate.module.scss'
-import { Button, Input } from '../../../components'
 import { useState } from 'react'
+import styles from './UserCreate.module.scss'
 import { useNavigate } from 'react-router-dom'
+import { Button, Input } from '../../../components'
 
 const CreateUser = () => {
     const navigate = useNavigate()
     const [name, setName] = useState<string>()
     const [email, setEmail] = useState<string>()
 
+    const submit = () => {
+        navigate("/")
+    }
+
     return(
         <div className={styles['Wrapper']}>
-            <Input onChange={setName} placeholder='Name'/>
-            <Input onChange={setEmail} placeholder='Email'/>
-            <Button type={"Create"} onClick={() => navigate("/")}/>
+            <Input onChange={(e) => {setName(e.currentTarget.value)}} placeholder='Name'/>
+            <Input onChange={(e) => {setEmail(e.currentTarget.value)}} placeholder='Email'/>
+            <Button type={"Create"} onClick={() => submit()}/>
         </div>
     )
 }
