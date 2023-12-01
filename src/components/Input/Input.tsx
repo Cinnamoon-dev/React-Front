@@ -1,14 +1,14 @@
 import styles from './Input.module.scss'
 
-interface InputProps {
-    onChange?: React.Dispatch<React.SetStateAction<string | undefined>>
+type InputProps = {
+    onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined
     placeholder?: string
 }
 
 const Input = (props: InputProps) => {
     return(
         <div className={styles['InputContainer']}>
-            <input type="text" placeholder={props.placeholder} onChange={(e) => {props.onChange ? props.onChange(e.currentTarget.value) : console.log("")}}/>
+            <input type="text" placeholder={props.placeholder} onChange={props.onChange}/>
         </div>
     )
 }
